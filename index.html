@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+       header {
+  width: 100vw;      /* Full viewport width */
+  box-sizing: border-box;
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+        header h1 {
+            color: white;
+            font-size: 48px;
+        }
+
+        h1, h2 {
+            color: #000000;
+        }
+
+        h2 {
+            font-size: 32px;
+        }
+
+        main {
+            padding: 40px;
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        footer {
+            background-color: #eee;
+            padding: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .center-image {
+            display: block;
+            margin: 20px auto;
+            width: 900px;
+        }
+
+        .invisible-link {
+            color: Black;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        /* Updated Poem Section */
+        .poem-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 20px;
+			margin-right: 50px;
+        }
+
+        .poem {
+            font-size: 20px;
+            font-style: italic;
+            color: black;
+            text-decoration: none;
+            margin: 3px 0;
+			left: 50%;
+        }
+
+        /* Form section */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 50px;
+        }
+
+       form {
+  font-family: 'Times New Roman', serif;
+  background-color: #f4f4f4;
+  border: 2px inset #999;   /* retro 3D look */
+  padding: 20px;
+  max-width: 800px;
+  margin: 30px auto;
+  box-shadow: inset 2px 2px 5px #ccc;
+}
+
+input, textarea {
+  font-family: 'Courier New', monospace;
+  border: 2px inset #ccc;
+  background-color: #fff;
+  padding: 10px;
+  width: 95%;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #ddd;
+  color: #000;
+  border: 2px outset #aaa;
+  font-family: 'Courier New', monospace;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ccc;
+}
+
+
+        /* No shake effect on the whole page */
+        body, header, main, footer {
+            animation: none !important;
+        }
+
+  #garbled-placeholder {
+  visibility: hidden;
+}
+
+#garbled-name {
+  display: inline-block;
+  min-width: 8ch;
+  font-family: 'Consolas', monospace;
+  font-size: inherit;
+  color: inherit;
+}
+
+#garbled-name2 {
+  display: inline-block;
+  min-width: 8ch;
+  font-family: 'Consolas', monospace;
+  font-size: inherit;
+  color: inherit;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-1px); }
+  50% { transform: translateX(1px); }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(1px); }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Benediction Approaches</h1>
+        <p><a href="page2.html" class="invisible-link">Hurry fool, Hurry...</a></p>
+    </header>
+
+    <!-- Centered and large image -->
+    <img src="Benediction2.png" alt="A description of the image" class="center-image" >
+
+    <!-- Poem Section -->
+    <div class="poem-section">
+        <a class="poem" >Internum clamor larum columbarum</a>
+        <a class="poem" >aestus qui colores movet</a>
+        <a class="poem" >finis finis temporum hic sunt</a>
+        <a class="poem" >el Deus-Malleus levo Manhattan</a>
+    </div>
+
+    <main>
+        <h2>About Me</h2>
+       <p style="position: relative; display: inline-block;">
+  <p>Hi! I'm <span id="garbled-name"></span>, and I made this site using Notepad++!!!</p>
+
+
+
+
+
+        <h2>My Interests</h2>
+        <ul>
+            <li>Web development</li>
+            <li>Gaming</li>
+            <li>Cat-Dog Identification</li>
+            <li>Apocrypha</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>You can reach me at: <a href="RealScienceFacts.TRUTH">RealScienceFacts.TRUTH@humanoid.net</a></p>
+    </main>
+
+    <!-- Leave a Message Section -->
+    <h2>Leave a Message</h2>
+    <form action="#" method="POST">
+        <label for="username">
+		
+		Your Name:</label>
+		
+        <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+        <label for="useremail">
+		
+		<p>Your Email:</label>
+		
+        <input type="email" id="useremail" name="useremail" placeholder="Enter your email" required>
+		</p>
+        <label for="usermessage">Your Message:</label>
+        <textarea id="usermessage" name="usermessage" rows="4" cols="50" placeholder="Type your message here..." required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <footer>
+
+        &copy; 2025 <span id="garbled-name2"></span>
+    </footer>
+
+<script>
+  const garbledName = document.getElementById("garbled-name");
+  const garbledName2 = document.getElementById("garbled-name2"); // new one
+  const baseLength = "GarbledName123".length;
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  function getRandomChar() {
+    return chars[Math.floor(Math.random() * chars.length)];
+  }
+
+  function scrambleFixedLength(length) {
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += getRandomChar();
+    }
+    return result;
+  }
+
+  function animateGarbledName() {
+    const scrambled = scrambleFixedLength(baseLength);
+    garbledName.textContent = scrambled;
+    garbledName2.textContent = scrambled; // update both
+  }
+
+  setInterval(animateGarbledName, 50);
+</script>
+
+
+
+
+
+</body>
+</html>
