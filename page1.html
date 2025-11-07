@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hidden Quote Reveal</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      font-family: Georgia, serif;
+      padding: 40px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      color: black;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 16px;
+      z-index: 700000;
+      transition: background-color 0.3s;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+	
+    img {
+      max-width: 600px;
+      height: auto;
+      margin-bottom: 0px;
+    }
+	
+    .large-bold {
+      font-size: 40px;
+      font-weight: bold;
+    }
+		
+    .hidden-text {
+      background-color: black;
+      color: black;
+      padding: 2px 6px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .hidden-text.revealed {
+      background-color: transparent;
+      color: black;
+    }
+
+    .section {
+      display: inline-block;
+      text-align: left;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    hr {
+      width: 700px;
+      margin: 20px auto;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <a href="nextpage.html" class="back-link">← Back</a>
+  <p><span class="large-bold">Pitstop ... </span> Threats as they appear</p>
+
+  <hr>
+
+  <!-- SECTION 1: WEREWOLF -->
+  <img src="werewolve.png" alt="Werewolf" />
+  <h1>A Werewolf?</h1>
+  <div class="section" id="section1">
+    <p><center><strong>Pool Health:</strong> 4</center>
+    <center>“Is Meat”: "15"</center> 
+    <center>“Has no Holes”: "10"</center> 
+    <center>“Once a Human”: "5"</center> 
+    <center>“On the Hunt”: "8"</center></p>
+
+    <p><strong>Bloodied:</strong> At 2 Pool Health this enemy "gains 3 attacks but will use 2 a turn on destroying the environment around it and fleeing"</p>
+    <p><strong>Distracted:</strong> "This enemy is distracted by memories, scents, and sounds"</p>
+    <p><strong>Vicious:</strong> Attacks Twice</p>
+    <p>____________________________________________</p>
+    <p><strong>Horrid Bite:</strong> Roll Fight, On a success "takes no damage but one point is moved out of Violence", on a failure "take 3 Vigil damage" if your violence is above 4 take "2 Vigil" damage if it is below 4 take "5 Vigil damage", then "move 3 points out of violence". This enemy then becomes ‘bloated’ "and all forced rolls it makes any player make are rolled as if pushed."</p>
+
+    <p><strong>Muddy Claws:</strong> Roll Security, "On a success, take 1 Vigil, on a failure distribute 3–5 Vigil damage between yourself and a fellow teammate"</p>
+
+    <p><strong>Shifting Hair:</strong> Roll Secrets, "On a failure whenever you act you take 1 Grasp damage, this effect stacks, another player may remove this effect from you entirely with a successful Secrets roll as they explain the patterns of how the hair moves in unsettling ways."</p>
+  </div>
+
+  <hr>
+
+  <!-- SECTION 2: GAPE -->
+  <img src="gape.png" alt="Gape" style="width: 300px;">
+  <h1>Razor-Gape</h1>
+  <div class="section" id="section2">
+    <p><center><strong>Pool Health:</strong> 6</center>
+    <center>“Mouth Without End”: "12"</center> 
+    <center>“Swallows Light”: "9"</center> 
+    <center>“Voice of Echoes”: "4"</center> 
+    <center>“Hungers Always”: "15"</center></p>
+
+    <p><strong>Bloodied:</strong> At 3 Pool Health this enemy "splits into two smaller gapes each with 3 health but weaker attacks"</p>
+    <p><strong>Distracted:</strong> "This enemy is distracted by loud sounds that resonate in its endless throat"</p>
+    <p><strong>Vicious:</strong> "Can attack three times if cornered"</p>
+    <p>____________________________________________</p>
+    <p><strong>Consuming Maw:</strong> Roll Fight, "On success you escape but lose 1 Vigil", on failure "take 4 Vigil damage and are swallowed until another teammate frees you".</p>
+
+    <p><strong>Echo Wail:</strong> Roll Secrets, "On a failure you are stunned for 1 turn and lose 2 Grasp damage".</p>
+
+    <p><strong>Devouring Pull:</strong> Roll Security, "On success you resist the suction, on failure you and a teammate are dragged closer and both take 2 Vigil damage".</p>
+  </div>
+
+  <hr>
+
+  <!-- SECTION 2: GAPE -->
+  <img src="gape.png" alt="Gape" style="width: 300px;">
+  <h1>Razor-Gape</h1>
+  <div class="section" id="section2">
+    <p><center><strong>Pool Health:</strong> 6</center>
+    <center>“Mouth Without End”: "12"</center> 
+    <center>“Swallows Light”: "9"</center> 
+    <center>“Voice of Echoes”: "4"</center> 
+    <center>“Hungers Always”: "15"</center></p>
+
+    <p><strong>Unintelligent:</strong> “At 30 Is Meat, this enemy will attempt to hide in the shadows and attack only when neccessary”</p>
+    <p><strong>Violence:</strong> “Attacks made with Sympathy and Study deal double damage“</p>
+    <p><strong>Vicious:</strong> Can attack twice</p>
+    <p>____________________________________________</p>
+    <p><strong>Consuming Maw:</strong> Roll Fight, "On success you escape but lose 1 Vigil", on failure "take 4 Vigil damage and are swallowed until another teammate frees you".</p>
+
+    <p><strong>Echo Wail:</strong> Roll Secrets, "On a failure you are stunned for 1 turn and lose 2 Grasp damage".</p>
+
+    <p><strong>Devouring Pull:</strong> Roll Security, "On success you resist the suction, on failure you and a teammate are dragged closer and both take 2 Vigil damage".</p>
+  </div>
+
+  <hr>
+
+
+  <script>
+    function concealQuotesFromHTML(html) {
+      return html.replace(/"([^"]+)"/g, (_, quoted) => {
+        return `<span class="hidden-text" onclick="this.classList.toggle('revealed')">${quoted}</span>`;
+      });
+    }
+
+    // Apply redactions to both sections
+    ["section1", "section2"].forEach(id => {
+      const el = document.getElementById(id);
+      el.innerHTML = concealQuotesFromHTML(el.innerHTML);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Message Board</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #messageForm {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 80%;
+      height: 80px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
+
+    #board {
+      width: 80%;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .post {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Message Board</h1>
+
+  <form id="messageForm">
+    <textarea id="messageInput" placeholder="Write your message here..."></textarea><br>
+    <button type="submit">Post</button>
+  </form>
+
+  <div id="board"></div>
+
+  <script>
+    const form = document.getElementById('messageForm');
+    const messageInput = document.getElementById('messageInput');
+    const board = document.getElementById('board');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const text = messageInput.value.trim();
+      if (text) {
+        const post = document.createElement('div');
+        post.classList.add('post');
+        post.textContent = text;
+        board.prepend(post); // new posts appear at the top
+        messageInput.value = '';
+      }
+    });
+  </script>
+
+</body>
+</html>

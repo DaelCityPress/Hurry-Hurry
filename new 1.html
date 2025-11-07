@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message Board with Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+	
+	 h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Layout for login */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    /* Centered login box */
+    .login-box {
+      text-align: center;
+    }
+
+    #login input {
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      display: block;
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #login button {
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Avatar grid */
+    .avatar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .avatar-grid img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: border 0.2s;
+    }
+
+    .avatar-grid img.selected {
+      border: 3px solid black;
+    }
+
+    /* After login profile box */
+    .profile-box {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background: #333;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .profile-box img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .profile-box .username {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    /* Board links */
+    #boardLinks {
+      text-align: center;
+    }
+
+    #boardLinks a {
+      display: block;
+      margin: 10px 0;
+      color: #666;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Back button */
+    .back-btn {
+      position: absolute;
+      top: 10px;
+      left: 250px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Board section */
+    .board-section {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    .post {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+	  font-size: 24px;
+    }
+
+    .post-header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .timestamp {
+      color: #888;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+ <h1>Forum Magnum</h1>
+
+  <!-- Login Section -->
+  <div id="login">
+    <div class="login-container">
+      <!-- Username + title -->
+      <div class="login-box">
+        <h2>Assign your moniker to continue</h2>
+        <input type="text" id="username" placeholder="insert username"><br>
+        <button onclick="login()">Enter</button>
+      </div>
+
+      <!-- Avatar Selection -->
+      <div>
+        <p><center><strong>Profile</strong></center></p>
+        <div class="avatar-grid" id="avatarGrid">
+          <img src="happy teeth.png" alt="avatar1">
+          <img src="eye eye.png" alt="avatar2">
+          <img src="spaghetti.png" alt="avatar3">
+          <img src="cool car.png" alt="avatar4">
+          <img src="murder.png" alt="avatar5">
+          <img src="keys.png" alt="avatar6">
+          <img src="anglerfish.png" alt="avatar7">
+          <img src="phone.png" alt="avatar8">
+          <img src="heart.png" alt="avatar9">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile + Boards -->
+  <div id="profileSection" style="display:none;">
+    <div class="profile-box" id="profileBox">
+      <center><img id="profilePic" src="" alt="profile picture"></center>
+      <center><div class="username" id="profileName"></div></center>
+    </div>
+
+    <div id="boardLinks" class="board-section">
+<h2><center>Available Boards</center></h2>
+<a onclick="openBoard('board1')">Board 1</a>
+<a onclick="openBoard('board2')">Board 2</a>
+    </div>
+
+    <div id="boards" style="display:none;">
+      <button class="back-btn" onclick="goBack()">← Back</button>
+      <div id="boardContent" class="board-section"></div>
+    </div>
+  </div>
+
+  <script>
+    let currentUser = { username: "", profilePic: "" };
+    let selectedAvatar = "";
+
+    const avatarGrid = document.getElementById('avatarGrid');
+    avatarGrid.addEventListener('click', function(e) {
+      if (e.target.tagName === "IMG") {
+        document.querySelectorAll('.avatar-grid img').forEach(img => img.classList.remove('selected'));
+        e.target.classList.add('selected');
+        selectedAvatar = e.target.src;
+      }
+    });
+
+    function login() {
+      const username = document.getElementById('username').value.trim();
+      if (!username) {
+        alert("Please enter a username!");
+        return;
+      }
+      if (!selectedAvatar) {
+        alert("Please select an avatar!");
+        return;
+      }
+
+      currentUser = { username, profilePic: selectedAvatar };
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('profileSection').style.display = 'block';
+      document.getElementById('profilePic').src = currentUser.profilePic;
+      document.getElementById('profileName').textContent = currentUser.username;
+    }
+
+    function openBoard(boardId) {
+      document.getElementById('boardLinks').style.display = 'none';
+      document.getElementById('boards').style.display = 'block';
+
+      const content = document.getElementById('boardContent');
+      content.innerHTML = ""; // clear board
+
+      // Pre-made posts
+      const posts = {
+        board1: [
+          { user: "Morton Feldman Sr.", pic: "driver.png", text: "help cd", time: "10:00 AM" },
+          { user: "Bob", pic: "eye eye.png", text: "Hey everyone!", time: "10:05 AM" }
+        ],
+        board2: [
+          { user: "Charlie", pic: "spaghetti.png", text: "This is board 2", time: "11:00 AM" },
+          { user: "Dana", pic: "cool car.png", text: "Looks good here.", time: "11:10 AM" }
+        ]
+      };
+
+      posts[boardId].forEach(p => {
+        const post = document.createElement('div');
+        post.classList.add('post');
+
+        const header = document.createElement('div');
+        header.classList.add('post-header');
+
+        const img = document.createElement('img');
+        img.src = p.pic;
+
+        const nameTime = document.createElement('div');
+        nameTime.innerHTML = `<strong>${p.user}</strong> <span class="timestamp">[${p.time}]</span>`;
+
+        header.appendChild(img);
+        header.appendChild(nameTime);
+
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = p.text;
+
+        post.appendChild(header);
+        post.appendChild(messageDiv);
+
+        content.appendChild(post);
+      });
+    }
+
+    function goBack() {
+      document.getElementById('boards').style.display = 'none';
+      document.getElementById('boardLinks').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
